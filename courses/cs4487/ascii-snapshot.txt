@@ -1,0 +1,183 @@
++==============================================================================+
+|  CS4487/CS5489 Machine Learning — ASCII Knowledge Graph                    |
+|  City University of Hong Kong                                              |
+|  Layers L->R: Math -> Gen/Disc/Margin -> Reg/Unsup -> Practice            |
+|  Click [node_id] for detail · Search filters · Regenerate reloads graph.json |
++==============================================================================+
+
+        MATH                        GEN / DISC / MARGIN                         REG / UNSUP                           PRACTICE
+
++-------------------+          +----------------------------+          +---------------------------+          +----------------------+
+| Convex / GD / SGD |#-------+-|        Bayes / KNN         |--------+-|   Nonlinear regression    |--------+ |      Final exam      |
+|    [convex_gd]    |        | |        [bayes_knn]         |        | |      [nonlinear_reg]      |        | |     [final_exam]     |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+                             |                                       |                                      |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+|   Duality / KKT   |#-------+-|Gaussian class-conditionals |--------+-|     Normal equations      |--------+ |         HA1          |
+|   [duality_kkt]   |        | |      [gaussian_class]      |        | |        [normal_eq]        |        | |        [ha1]         |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+                             |                                       |                                      |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+|   Entropy / MI    |--------+>|            LDA             |--------+>|            OLS            |        | |   HA2 (due Oct 20)   |
+|   [entropy_mi]    |        | |           [lda]            |        | |           [ols]           |        | |        [ha2]         |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+                             |                                       |                                      |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+|   LinAlg / PSD    |~-------+>|        Naive Bayes         |--------+ |          RANSAC           |        +>|     HA2 Ex2 (GD)     |
+|   [linalg_psd]    |        | |            [nb]            |        | |         [ransac]          |        | |      [ha2_ex2]       |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+                             |                                       |                                      |
++-------------------+        | +----------------------------+        | +---------------------------+        | +----------------------+
+|        MLE        |~-------+-|     Linear separators      |--------+>|       Ridge / Lasso       |        +>| HA2 Ex3–5 (SVM dual) |
+|       [mle]       |        | |     [linear_separator]     |        | |       [ridge_lasso]       |          |     [ha2_ex345]      |
++-------------------+        | +----------------------------+        | +---------------------------+          +----------------------+
+                             |                                       |
++-------------------+        | +----------------------------+        | +---------------------------+          +----------------------+
+|   Prob / Bayes    |--------+>|    Logistic Regression     |        | |    Adjusted Rand Index    |          |      Tutorials       |
+|   [prob_bayes]    |        | |          [logreg]          |        | |           [ari]           |          |     [tutorials]      |
++-------------------+        | +----------------------------+        | +---------------------------+          +----------------------+
+                             |                                       |
+                             | +----------------------------+        | +---------------------------+
+                             +>|   Feature maps / kernels   |~-------+>|   Clustering / k-means    |
+                             | |       [feature_map]        |        | |       [clustering]        |
+                             | +----------------------------+        | +---------------------------+
+                             |                                       |
+                             | +----------------------------+        | +---------------------------+
+                             | |   Hinge vs logistic loss   |        +>|         GMM / EM          |
+                             | |    [hinge_vs_logistic]     |        | |           [gmm]           |
+                             | +----------------------------+        | +---------------------------+
+                             |                                       |
+                             | +----------------------------+        | +---------------------------+
+                             +>|         Kernel SVM         |        +>| Supervised → unsupervised |
+                             | |        [kernel_svm]        |          |       [drop_labels]       |
+                             | +----------------------------+          +---------------------------+
+                             |
+                             | +----------------------------+
+                             +>|         Linear SVM         |
+                               |        [svm_linear]        |
+                               +----------------------------+
+
+
+
+---- EDGE LEGEND ---------------------------------------------------------------
+  * ~>   uses_math           Uses math foundation
+  * =>   specializes         Specializes / instance of
+  * <>   alternative_to      Alternative approach to
+  * ->   leads_to            Leads to / builds toward
+  * ##   assessed_by         Assessed by
+  * ==   shares_geometry     Shares geometry / decision view
+  * ~~   map_view            Same idea, different view (e.g. map/feature)
+  (* = used in this graph)
+
+---- GROUPS --------------------------------------------------------------------
+  math              Math                              col=MATH
+  classify_gen      Classification (generative)       col=GEN / DISC / MARGIN
+  classify_disc     Classification (discriminative)   col=GEN / DISC / MARGIN
+  margin            Margin methods                    col=GEN / DISC / MARGIN
+  regression        Regression                        col=REG / UNSUP
+  unsup             Unsupervised                      col=REG / UNSUP
+  practice          Practice / Assessment             col=PRACTICE
+
+---- ALL EDGES (full list; map shows forward connectors) -----------------------
+  convex_gd        ##  ha2_ex2           [assessed_by]  HA2 Ex2
+  convex_gd        ~>  ridge_lasso       [uses_math]  convex regularized obj
+  convex_gd        ~>  logreg            [uses_math]  convex NLL train
+  duality_kkt      ##  ha2_ex345         [assessed_by]  HA2 Ex3–5
+  duality_kkt      ~>  kernel_svm        [uses_math]  dual in feature space
+  duality_kkt      ~>  svm_linear        [uses_math]  primal–dual / KKT
+  entropy_mi       ->  nb                [leads_to]  info view of independence
+  linalg_psd       ~>  normal_eq         [uses_math]  XᵀX invertibility
+  linalg_psd       ~>  lda               [uses_math]  covariance / Σ⁻¹
+  linalg_psd       ~>  ols               [uses_math]  least-squares geometry
+  linalg_psd       ~>  ridge_lasso       [uses_math]  Gram + λI
+  linalg_psd       ~>  feature_map       [uses_math]  kernel PSD / Mercer
+  mle              ~>  lda               [uses_math]  MLE for Gaussians
+  mle              ~~  ols               [map_view]  OLS ↔ Gaussian MLE
+  mle              ~>  nb                [uses_math]  MLE for NB params
+  mle              ~>  logreg            [uses_math]  Bernoulli likelihood
+  mle              ~>  gmm               [uses_math]  incomplete-data MLE / EM
+  prob_bayes       ->  bayes_knn         [leads_to]  Bayes rule → decision
+  prob_bayes       ~>  lda               [uses_math]  generative Bayes
+  prob_bayes       ~>  nb                [uses_math]  generative Bayes
+  bayes_knn        ->  clustering        [leads_to]  drop labels → groups
+  gaussian_class   ~~  gmm               [map_view]  Gaussians w/o labels
+  lda              ->  drop_labels       [leads_to]  supervised → unsup
+  feature_map      ~~  nonlinear_reg     [map_view]  basis / kernel regression
+  prob_bayes       ->  mle               [leads_to] (same-col)  likelihood view
+  bayes_knn        ->  nb                [leads_to] (same-col)  from Bayes to parametric
+  nb               =>  lda               [specializes] (same-col)  richer class-conditionals
+  gaussian_class   =>  lda               [specializes] (same-col)  shared-Σ case
+  lda              ~~  logreg            [map_view] (same-col)  LDA posterior ≈ sigmoid
+  lda              ==  linear_separator  [shares_geometry] (same-col)  linear boundary
+  logreg           ==  linear_separator  [shares_geometry] (same-col)  linear boundary
+  svm_linear       ==  linear_separator  [shares_geometry] (same-col)  max-margin hyperplane
+  logreg           <>  svm_linear        [alternative_to] (same-col)  disc. linear classifiers
+  logreg           ==  hinge_vs_logisti  [shares_geometry] (same-col)  logistic loss
+  svm_linear       ==  hinge_vs_logisti  [shares_geometry] (same-col)  hinge loss
+  svm_linear       ->  kernel_svm        [leads_to] (same-col)  nonlinear via kernel
+  feature_map      ~~  kernel_svm        [map_view] (same-col)  φ then same dual
+  ols              ->  ridge_lasso       [leads_to] (same-col)  add regularization
+  ols              =>  normal_eq         [specializes] (same-col)  closed form
+  ols              <>  ransac            [alternative_to] (same-col)  OLS breaks on outliers
+  ransac           ->  nonlinear_reg     [leads_to] (same-col)  robust nonlinear fit
+  ridge_lasso      ~>  convex_gd         [uses_math] (back)  opt when closed form hard
+  drop_labels      ~~  clustering        [map_view] (same-col)  same X, no y
+  clustering       ->  gmm               [leads_to] (same-col)  soft / probabilistic
+  gmm              ->  ari               [leads_to] (same-col)  evaluate clusters
+  clustering       ->  ari               [leads_to] (same-col)  external validity
+  ha1              ##  bayes_knn         [assessed_by] (back)  HA1 covers
+  ha1              ##  nb                [assessed_by] (back)  HA1 covers
+  ha1              ##  lda               [assessed_by] (back)  HA1 covers
+  ha1              ##  logreg            [assessed_by] (back)  HA1 covers
+  ha1              ##  prob_bayes        [assessed_by] (back)  HA1 math
+  ha1              ##  mle               [assessed_by] (back)  HA1 math
+  ha2              =>  ha2_ex2           [specializes] (same-col)  includes
+  ha2              =>  ha2_ex345         [specializes] (same-col)  includes
+  ha2              ##  svm_linear        [assessed_by] (back)  HA2 covers
+  ha2              ##  kernel_svm        [assessed_by] (back)  HA2 covers
+  ha2              ##  convex_gd         [assessed_by] (back)  HA2 covers
+  ha2              ##  duality_kkt       [assessed_by] (back)  HA2 covers
+  tutorials        ##  logreg            [assessed_by] (back)  tutorial practice
+  tutorials        ##  ols               [assessed_by] (back)  tutorial practice
+  tutorials        ##  clustering        [assessed_by] (back)  tutorial practice
+  final_exam       ##  svm_linear        [assessed_by] (back)  exam topic
+  final_exam       ##  kernel_svm        [assessed_by] (back)  exam topic
+  final_exam       ##  ridge_lasso       [assessed_by] (back)  exam topic
+  final_exam       ##  gmm               [assessed_by] (back)  exam topic
+  final_exam       ##  duality_kkt       [assessed_by] (back)  exam math
+  final_exam       ##  mle               [assessed_by] (back)  exam math
+
+---- NODE INDEX ----------------------------------------------------------------
+  [prob_bayes]            Prob / Bayes                  math            L1.1–1.2
+  [entropy_mi]            Entropy / MI                  math            L1.x
+  [linalg_psd]            LinAlg / PSD                  math            L2–5
+  [convex_gd]             Convex / GD / SGD             math            L2–5
+  [duality_kkt]           Duality / KKT                 math            L3–4
+  [mle]                   MLE                           math            L1.2
+  [bayes_knn]             Bayes / KNN                   classify_gen    L1.2
+  [nb]                    Naive Bayes                   classify_gen    L2.1
+  [lda]                   LDA                           classify_gen    L2.1
+  [logreg]                Logistic Regression           classify_disc   L2.2
+  [svm_linear]            Linear SVM                    margin          L3.2
+  [kernel_svm]            Kernel SVM                    margin          L4.2
+  [feature_map]           Feature maps / kernels        margin          L4.1–4.2
+  [hinge_vs_logistic]     Hinge vs logistic loss        margin          L3.2 / 2.2
+  [ols]                   OLS                           regression      L5.1
+  [ridge_lasso]           Ridge / Lasso                 regression      L5.2
+  [ransac]                RANSAC                        regression      L6.1
+  [nonlinear_reg]         Nonlinear regression          regression      L6.1
+  [clustering]            Clustering / k-means          unsup           L6.2
+  [gmm]                   GMM / EM                      unsup           L6.2
+  [ari]                   Adjusted Rand Index           unsup           L6.2
+  [ha1]                   HA1                           practice        LHA1
+  [ha2]                   HA2 (due Oct 20)              practice        LHA2
+  [tutorials]             Tutorials                     practice        LTUT
+  [final_exam]            Final exam                    practice        LExam
+  [gaussian_class]        Gaussian class-conditionals   classify_gen    L2.1
+  [linear_separator]      Linear separators             classify_disc   L2–3
+  [normal_eq]             Normal equations              regression      L5.1
+  [drop_labels]           Supervised → unsupervised     unsup           L6.2
+  [ha2_ex2]               HA2 Ex2 (GD)                  practice        LHA2 Ex2
+  [ha2_ex345]             HA2 Ex3–5 (SVM dual)          practice        LHA2 Ex3–5
+
+Updated: 2026-10-12 · Source: graph.json

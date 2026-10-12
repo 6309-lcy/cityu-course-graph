@@ -1,0 +1,96 @@
+{
+  "courses": [
+    {
+      "id": "cs4487",
+      "title": "CS4487/CS5489 Machine Learning",
+      "bot": "CS4487 Machine Learning",
+      "status": "ready",
+      "ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4487/",
+      "graph": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4487/graph.json",
+      "box_paths": {
+        "dir": "/workspace/cityu-course-graph/courses/cs4487/",
+        "graph": "/workspace/cityu-course-graph/courses/cs4487/graph.json",
+        "ui": "/workspace/cityu-course-graph/courses/cs4487/index.html"
+      },
+      "ui_local": "http://127.0.0.1:8765/courses/cs4487/",
+      "graph_local": "http://127.0.0.1:8765/courses/cs4487/graph.json"
+    },
+    {
+      "id": "cs3103",
+      "title": "CS3103 Operating Systems",
+      "bot": "CS3103 Operating System",
+      "status": "ready",
+      "ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs3103/",
+      "graph": "https://6309-lcy.github.io/cityu-course-graph/courses/cs3103/graph.json",
+      "box_paths": {
+        "dir": "/workspace/cityu-course-graph/courses/cs3103/",
+        "graph": "/workspace/cityu-course-graph/courses/cs3103/graph.json",
+        "ui": "/workspace/cityu-course-graph/courses/cs3103/index.html"
+      },
+      "ui_local": "http://127.0.0.1:8765/courses/cs3103/",
+      "graph_local": "http://127.0.0.1:8765/courses/cs3103/graph.json"
+    },
+    {
+      "id": "cs4187",
+      "title": "CS4187 Computer Vision for Interactivity",
+      "bot": "CS4187 Computer Vision for Interactivity",
+      "status": "ready",
+      "ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4187/",
+      "graph": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4187/graph.json",
+      "box_paths": {
+        "dir": "/workspace/cityu-course-graph/courses/cs4187/",
+        "graph": "/workspace/cityu-course-graph/courses/cs4187/graph.json",
+        "ui": "/workspace/cityu-course-graph/courses/cs4187/index.html"
+      },
+      "ui_local": "http://127.0.0.1:8765/courses/cs4187/",
+      "graph_local": "http://127.0.0.1:8765/courses/cs4187/graph.json"
+    },
+    {
+      "id": "cs6382",
+      "title": "CS6382 Advanced Algo Design and Game Theory",
+      "bot": "CS6382",
+      "status": "ready",
+      "ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs6382/",
+      "graph": "https://6309-lcy.github.io/cityu-course-graph/courses/cs6382/graph.json",
+      "box_paths": {
+        "dir": "/workspace/cityu-course-graph/courses/cs6382/",
+        "graph": "/workspace/cityu-course-graph/courses/cs6382/graph.json",
+        "ui": "/workspace/cityu-course-graph/courses/cs6382/index.html"
+      },
+      "ui_local": "http://127.0.0.1:8765/courses/cs6382/",
+      "graph_local": "http://127.0.0.1:8765/courses/cs6382/graph.json"
+    },
+    {
+      "id": "cs5486",
+      "title": "CS5486 Intelligent Systems",
+      "bot": "CS5486 Intelligent Systems",
+      "status": "stub",
+      "ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs5486/",
+      "graph": "https://6309-lcy.github.io/cityu-course-graph/courses/cs5486/graph.json",
+      "box_paths": {
+        "dir": "/workspace/cityu-course-graph/courses/cs5486/",
+        "graph": "/workspace/cityu-course-graph/courses/cs5486/graph.json",
+        "ui": "/workspace/cityu-course-graph/courses/cs5486/index.html"
+      },
+      "optional": true,
+      "note": "ML-adjacent stub; fill if needed",
+      "ui_local": "http://127.0.0.1:8765/courses/cs5486/",
+      "graph_local": "http://127.0.0.1:8765/courses/cs5486/graph.json"
+    }
+  ],
+  "meta": {
+    "institution": "City University of Hong Kong",
+    "hub": "https://6309-lcy.github.io/cityu-course-graph/",
+    "catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json",
+    "compat_graph_json": "https://6309-lcy.github.io/cityu-course-graph/graph.json",
+    "compat_note": "Root ./graph.json is a real file copy of courses/cs4487/graph.json (not a symlink; git-friendly)",
+    "box_root": "/workspace/cityu-course-graph/",
+    "updated": "2026-10-12",
+    "shared_viewer": "./shared/ascii-graph.js",
+    "github_pages": "https://6309-lcy.github.io/cityu-course-graph/",
+    "hub_local": "http://127.0.0.1:8765/",
+    "catalog_local": "http://127.0.0.1:8765/courses.json",
+    "compat_graph_json_local": "http://127.0.0.1:8765/graph.json",
+    "pages_base": "https://6309-lcy.github.io/cityu-course-graph"
+  }
+}

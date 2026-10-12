@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CS4487/CS5489 Machine Learning — Course Knowledge Graph (ASCII · GrokDay)</title>
+  <link rel="stylesheet" href="../../shared/grokday.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1><a href="../../" style="color:inherit;text-decoration:none">CityU Courses</a>
+        <span class="sub">/</span> <span id="course-title">CS4487/CS5489 Machine Learning ASCII Graph</span>
+        <span class="sub">CityU · GrokDay terminal view</span></h1>
+      <div class="controls">
+        <input type="search" id="search" placeholder="Filter / highlight…" autocomplete="off" />
+        <input type="text" id="goto" placeholder="Node id…" list="node-ids" autocomplete="off" />
+        <datalist id="node-ids"></datalist>
+        <button type="button" id="btn-goto" title="Show node detail">Goto</button>
+        <label class="ctrl">Size <input type="range" id="fontsize" min="10" max="22" value="13" /></label>
+        <button type="button" id="btn-regen" title="Reload graph.json and redraw ASCII">Regenerate</button>
+        <button type="button" id="btn-edit" title="Toggle editable ASCII">Edit</button>
+        <button type="button" id="btn-copy" title="Copy full ASCII to clipboard">Copy ASCII</button>
+      </div>
+    </header>
+    <div id="main">
+      <div id="ascii-wrap">
+        <pre id="ascii" aria-label="ASCII course knowledge graph">Loading graph.json…</pre>
+      </div>
+      <aside id="side">
+        <div id="detail">
+          <p id="empty">Click a <span style="color:var(--accent)">node id</span> in the ASCII map, or type an id and press Goto.<br /><br />
+          Search dims non-matching sections. Select/copy freely.</p>
+        </div>
+        <div id="status"></div>
+      </aside>
+    </div>
+    <footer>
+      <a href="../../">Hub</a> ·
+      Data: <a href="graph.json" id="footer-api">graph.json</a> ·
+      Shared: <a href="../../shared/ascii-graph.js">ascii-graph.js</a> ·
+      No vis-network · plain monospace ASCII
+    </footer>
+  </div>
+  <script src="../../shared/ascii-graph.js"></script>
+</body>
+</html>

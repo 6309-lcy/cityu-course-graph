@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "course": "CS5486 Intelligent Systems",
+    "institution": "City University of Hong Kong",
+    "title": "Course Knowledge Graph",
+    "description": "Stub \u2014 owning bot should fill nodes/edges.",
+    "updated": "2026-10-12",
+    "status": "stub",
+    "owning_bot": "CS5486 Intelligent Systems",
+    "api": {
+      "local_base": "http://127.0.0.1:8765",
+      "graph_json": "http://127.0.0.1:8765/courses/cs5486/graph.json",
+      "ui": "http://127.0.0.1:8765/courses/cs5486/",
+      "hub": "http://127.0.0.1:8765/",
+      "catalog": "http://127.0.0.1:8765/courses.json",
+      "pages_base": "https://6309-lcy.github.io/cityu-course-graph",
+      "pages_graph_json": "https://6309-lcy.github.io/cityu-course-graph/courses/cs5486/graph.json",
+      "pages_ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs5486/",
+      "pages_hub": "https://6309-lcy.github.io/cityu-course-graph/",
+      "pages_catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json"
+    },
+    "box_paths": {
+      "dir": "/workspace/cityu-course-graph/courses/cs5486/",
+      "graph": "/workspace/cityu-course-graph/courses/cs5486/graph.json",
+      "ui": "/workspace/cityu-course-graph/courses/cs5486/index.html"
+    }
+  },
+  "groups": {},
+  "edgeKinds": {},
+  "nodes": [],
+  "edges": [],
+  "_schema_hint": {
+    "groups_example": {
+      "topic": {
+        "label": "Topic",
+        "color": "#7D4BC6"
+      }
+    },
+    "edgeKinds_example": {
+      "leads_to": "Leads to / builds toward"
+    },
+    "node_example": {
+      "id": "example",
+      "label": "Example",
+      "group": "topic",
+      "lecture": "",
+      "detail": ""
+    },
+    "edge_example": {
+      "from": "a",
+      "to": "b",
+      "kind": "leads_to"
+    }
+  }
+}

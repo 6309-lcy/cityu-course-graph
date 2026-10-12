@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityU Course Graphs — Hub (GrokDay)</title>
+  <style>
+    :root {
+      --bg: #f5f5f5; --panel: #eeeeee; --border: #c8c8cd;
+      --text: #262626; --bright: #444444; --muted: #767676;
+      --accent: #7D4BC6; --dim: #b2b2b2; --input: #e4e4e4;
+      --hover: #dedede; --success: #0A8E70;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; min-height: 100%;
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+      background: var(--bg); color: var(--text);
+    }
+    header {
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    header h1 { margin: 0; font-size: 1.05rem; color: var(--bright); font-weight: 600; }
+    header .sub { color: var(--muted); font-size: 0.75rem; font-weight: 400; }
+    a { color: var(--accent); }
+    main { max-width: 920px; margin: 0 auto; padding: 24px 20px 56px; }
+    .api {
+      font-size: 0.8rem; color: var(--muted); margin: 0 0 20px;
+      padding: 10px 12px; background: var(--panel); border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .api code { color: var(--bright); }
+    .grid { display: flex; flex-direction: column; gap: 10px; }
+    .card {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px 16px;
+      align-items: center;
+      padding: 14px 16px; background: var(--panel);
+      border: 1px solid var(--border); border-radius: 4px;
+      text-decoration: none; color: inherit;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .card:hover { background: var(--hover); border-color: var(--accent); }
+    .card h2 { margin: 0; font-size: 0.95rem; color: var(--bright); font-weight: 600; }
+    .card .bot { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+    .card .links { font-size: 0.72rem; margin-top: 6px; }
+    .card .links a { margin-right: 10px; }
+    .badge {
+      font-size: 0.68rem; padding: 3px 8px; border-radius: 3px;
+      border: 1px solid var(--border); white-space: nowrap;
+    }
+    .badge.ready { color: var(--success); border-color: var(--success); background: #e8f7f2; }
+    .badge.stub { color: var(--muted); background: var(--input); }
+    footer {
+      margin-top: 28px; font-size: 0.7rem; color: var(--muted);
+      padding-top: 12px; border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CityU Course Knowledge Graphs <span class="sub">shared hub · GrokDay · ASCII maps</span></h1>
+  </header>
+  <main>
+    <p class="api">
+      Shared catalog API:
+      <code><a href="./courses.json">./courses.json</a></code><br />
+      Compat (CS4487 graph copy):
+      <code><a href="./graph.json">./graph.json</a></code>
+      → real file (same content as <code>./courses/cs4487/graph.json</code>)<br />
+      Shared viewer: <code><a href="./shared/ascii-graph.js">./shared/ascii-graph.js</a></code>
+      · <code><a href="./shared/grokday.css">./shared/grokday.css</a></code><br />
+      Box root: <code>/workspace/cityu-course-graph/</code>
+      · Pages: <code>https://6309-lcy.github.io/cityu-course-graph/</code>
+    </p>
+
+    <div class="grid" id="courses">
+      <article class="card">
+        <div>
+          <h2><a href="./courses/cs4487/">CS4487/CS5489 Machine Learning</a></h2>
+          <div class="bot">Bot: CS4487 Machine Learning</div>
+          <div class="links">
+            <a href="./courses/cs4487/">UI</a>
+            <a href="./courses/cs4487/graph.json">graph.json</a>
+          </div>
+        </div>
+        <span class="badge ready">ready · ASCII UI</span>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2><a href="./courses/cs3103/">CS3103 Operating Systems</a></h2>
+          <div class="bot">Bot: CS3103 Operating System</div>
+          <div class="links">
+            <a href="./courses/cs3103/">UI</a>
+            <a href="./courses/cs3103/graph.json">graph.json</a>
+          </div>
+        </div>
+        <span class="badge ready">ready · ASCII UI</span>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2><a href="./courses/cs4187/">CS4187 Computer Vision for Interactivity</a></h2>
+          <div class="bot">Bot: CS4187 Computer Vision for Interactivity</div>
+          <div class="links">
+            <a href="./courses/cs4187/">UI</a>
+            <a href="./courses/cs4187/graph.json">graph.json</a>
+          </div>
+        </div>
+        <span class="badge ready">ready · ASCII UI</span>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2><a href="./courses/cs6382/">CS6382 Advanced Algo Design and Game Theory</a></h2>
+          <div class="bot">Bot: CS6382</div>
+          <div class="links">
+            <a href="./courses/cs6382/">UI</a>
+            <a href="./courses/cs6382/graph.json">graph.json</a>
+          </div>
+        </div>
+        <span class="badge ready">ready · ASCII UI</span>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2><a href="./courses/cs5486/">CS5486 Intelligent Systems</a></h2>
+          <div class="bot">Bot: CS5486 Intelligent Systems · optional ML-adjacent stub</div>
+          <div class="links">
+            <a href="./courses/cs5486/">UI</a>
+            <a href="./courses/cs5486/graph.json">graph.json</a>
+          </div>
+        </div>
+        <span class="badge stub">stub — empty graph</span>
+      </article>
+    </div>
+
+    <footer>
+      Each course bot owns <code>courses/&lt;id&gt;/graph.json</code>.
+      All course pages share <code>shared/ascii-graph.js</code> (GrokDay ASCII map).
+      Links are relative for GitHub Pages project sites.
+      Theme: GrokDay (#f5f5f5 / magenta #7D4BC6).
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "course": "CS3103 Operating Systems",
+    "institution": "City University of Hong Kong",
+    "title": "Course Knowledge Graph",
+    "description": "Concept map for CS3103 mid-term quiz prep (Lec 1\u20135): interrupts, processes/threads, scheduling, synchronization. Not a lecture folder tree.",
+    "updated": "2026-10-12",
+    "status": "ready",
+    "owning_bot": "CS3103 Operating System",
+    "api": {
+      "local_base": "http://127.0.0.1:8765",
+      "graph_json": "http://127.0.0.1:8765/courses/cs3103/graph.json",
+      "ui": "http://127.0.0.1:8765/courses/cs3103/",
+      "hub": "http://127.0.0.1:8765/",
+      "catalog": "http://127.0.0.1:8765/courses.json",
+      "pages_base": "https://6309-lcy.github.io/cityu-course-graph",
+      "pages_graph_json": "https://6309-lcy.github.io/cityu-course-graph/courses/cs3103/graph.json",
+      "pages_ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs3103/",
+      "pages_hub": "https://6309-lcy.github.io/cityu-course-graph/",
+      "pages_catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json"
+    },
+    "box_paths": {
+      "dir": "/workspace/cityu-course-graph/courses/cs3103/",
+      "graph": "/workspace/cityu-course-graph/courses/cs3103/graph.json",
+      "ui": "/workspace/cityu-course-graph/courses/cs3103/index.html"
+    },
+    "asciiColumns": [
+      {
+        "title": "FOUNDATIONS",
+        "groups": [
+          "foundations"
+        ]
+      },
+      {
+        "title": "PROCESS",
+        "groups": [
+          "process"
+        ]
+      },
+      {
+        "title": "SCHEDULE",
+        "groups": [
+          "schedule"
+        ]
+      },
+      {
+        "title": "SYNC",
+        "groups": [
+          "sync"
+        ]
+      },
+      {
+        "title": "PRACTICE",
+        "groups": [
+          "practice"
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "foundations": {
+      "label": "OS foundations",
+      "color": "#4C8BF5"
+    },
+    "process": {
+      "label": "Processes & threads",
+      "color": "#34A853"
+    },
+    "schedule": {
+      "label": "CPU scheduling",
+      "color": "#F59E0B"
+    },
+    "sync": {
+      "label": "Synchronization",
+      "color": "#EC4899"
+    },
+    "practice": {
+      "label": "Practice / Assessment",
+      "color": "#9CA3AF"
+    }
+  },
+  "edgeKinds": {
+    "leads_to": "Leads to / builds toward",
+    "requires": "Requires / depends on",
+    "specializes": "Specializes / instance of",
+    "alternative_to": "Alternative approach to",
+    "causes": "Causes / triggers",
+    "protects": "Protects / prevents race on",
+    "assessed_by": "Assessed by"
+  },
+  "nodes": [
+    {
+      "id": "os_roles",
+      "label": "OS roles (allocator + control)",
+      "group": "foundations",
+      "lecture": "1",
+      "detail": "OS sits between apps and hardware; allocates CPU/memory/devices; controls execution for safety."
+    },
+    {
+      "id": "interrupt",
+      "label": "Interrupts / timer / DMA",
+      "group": "foundations",
+      "lecture": "1",
+      "detail": "HW/SW interrupts drive the OS; timer enables preemption; DMA moves blocks with one interrupt per block."
+    },
+    {
+      "id": "dual_mode",
+      "label": "User vs kernel mode",
+      "group": "foundations",
+      "lecture": "1",
+      "detail": "Mode bit; privileged instructions only in kernel; illegal use traps to OS."
+    },
+    {
+      "id": "syscall",
+      "label": "System calls / API",
+      "group": "foundations",
+      "lecture": "1",
+      "detail": "Controlled door into kernel; apps usually call APIs (printf\u2192write). Mode switch \u2260 process context switch."
+    },
+    {
+      "id": "mode_vs_ctx",
+      "label": "Mode switch vs context switch",
+      "group": "foundations",
+      "lecture": "1\u20132",
+      "detail": "Mode switch: same process, change privilege. Context switch: save/load PCB (or thread regs), change who owns CPU."
+    },
+    {
+      "id": "process",
+      "label": "Process + PCB + states",
+      "group": "process",
+      "lecture": "2",
+      "detail": "Program in execution; PCB holds CPU state, memory, files. States: new/ready/running/waiting/terminated."
+    },
+    {
+      "id": "fork_ipc",
+      "label": "fork / IPC / RPC",
+      "group": "process",
+      "lecture": "2",
+      "detail": "fork returns 0 in child, child PID in parent. IPC: shared memory vs message passing; RPC = remote call via messages + stubs."
+    },
+    {
+      "id": "thread",
+      "label": "Threads + Pthreads",
+      "group": "process",
+      "lecture": "3",
+      "detail": "Lightweight unit sharing address space; create/join; cancellation async vs deferred."
+    },
+    {
+      "id": "concurrency",
+      "label": "Concurrency vs parallelism",
+      "group": "process",
+      "lecture": "3",
+      "detail": "Concurrency = interleaved progress (even 1 core); parallelism = simultaneous on multiple cores."
+    },
+    {
+      "id": "ctx_switch_mech",
+      "label": "Context switch mechanics",
+      "group": "process",
+      "lecture": "3",
+      "detail": "Save regs to per-task stack; switch SP; restore; fake initial stack frame for new task. Overhead, no useful work."
+    },
+    {
+      "id": "scheduler",
+      "label": "Scheduler vs dispatcher",
+      "group": "schedule",
+      "lecture": "4",
+      "detail": "Short-term scheduler picks next ready task; dispatcher does context switch + user mode + jump. Dispatch latency = overhead."
+    },
+    {
+      "id": "criteria",
+      "label": "Scheduling criteria",
+      "group": "schedule",
+      "lecture": "4",
+      "detail": "Maximize utilization/throughput; minimize turnaround/waiting/response. Goals conflict."
+    },
+    {
+      "id": "fcfs_sjf",
+      "label": "FCFS / SJF / SRTF",
+      "group": "schedule",
+      "lecture": "4",
+      "detail": "FCFS convoy effect; SJF optimal avg wait (needs burst estimate via exp. averaging); SRTF = preemptive SJF."
+    },
+    {
+      "id": "priority_rr",
+      "label": "Priority / RR / MLFQ",
+      "group": "schedule",
+      "lecture": "4",
+      "detail": "Priority + aging vs starvation; RR quantum tradeoff; multilevel feedback moves tasks between queues."
+    },
+    {
+      "id": "smp",
+      "label": "SMP / affinity / CFS",
+      "group": "schedule",
+      "lecture": "4",
+      "detail": "Symmetric multiprocessor scheduling; load balancing vs processor affinity; Linux CFS uses vruntime + nice."
+    },
+    {
+      "id": "race_cs",
+      "label": "Race + critical section",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "Shared data + non-atomic RMW \u2192 races. CS needs mutual exclusion, progress, bounded waiting."
+    },
+    {
+      "id": "peterson_hw",
+      "label": "Peterson / TestAndSet / Swap",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "Software ME for 2 processes; hardware atomic ops enable spinlocks."
+    },
+    {
+      "id": "semaphore",
+      "label": "Semaphore (P/V)",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "wait/signal; binary=mutex; counting=resources. Busy-wait vs block/wakeup queues."
+    },
+    {
+      "id": "bounded_buf",
+      "label": "Bounded buffer",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "empty=N, full=0, mutex=1. wait resource before mutex or deadlock. signal order mainly efficiency."
+    },
+    {
+      "id": "rw_dining",
+      "label": "Readers\u2013Writers / Dining",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "Many readers or one writer; dining chopsticks can deadlock if all take left first."
+    },
+    {
+      "id": "monitor",
+      "label": "Monitor + condition vars",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "Language-enforced ME; wait/signal on conditions (bank counter analogy)."
+    },
+    {
+      "id": "deadlock",
+      "label": "Deadlock (intro)",
+      "group": "sync",
+      "lecture": "5",
+      "detail": "Circular wait for locks/semaphores; four conditions; elaboration next chapter."
+    },
+    {
+      "id": "midterm_quiz",
+      "label": "Mid-term quiz (15%)",
+      "group": "practice",
+      "lecture": "assess",
+      "detail": "Catalogue: CA 40% = assignments 17% + case study 8% + mid-term quiz 15%; final 60%. Exact date on Canvas."
+    }
+  ],
+  "edges": [
+    {
+      "from": "os_roles",
+      "to": "interrupt",
+      "kind": "requires",
+      "label": "OS is interrupt-driven"
+    },
+    {
+      "from": "interrupt",
+      "to": "dual_mode",
+      "kind": "leads_to",
+      "label": "ISR runs privileged"
+    },
+    {
+      "from": "dual_mode",
+      "to": "syscall",
+      "kind": "leads_to",
+      "label": "syscall = intentional trap"
+    },
+    {
+      "from": "syscall",
+      "to": "mode_vs_ctx",
+      "kind": "leads_to",
+      "label": "mode switch may not switch process"
+    },
+    {
+      "from": "interrupt",
+      "to": "scheduler",
+      "kind": "causes",
+      "label": "after ISR \u2192 schedule"
+    },
+    {
+      "from": "scheduler",
+      "to": "ctx_switch_mech",
+      "kind": "requires",
+      "label": "dispatch needs switch"
+    },
+    {
+      "from": "process",
+      "to": "mode_vs_ctx",
+      "kind": "requires",
+      "label": "PCB save/restore"
+    },
+    {
+      "from": "process",
+      "to": "fork_ipc",
+      "kind": "leads_to"
+    },
+    {
+      "from": "process",
+      "to": "thread",
+      "kind": "leads_to",
+      "label": "threads share address space"
+    },
+    {
+      "from": "thread",
+      "to": "concurrency",
+      "kind": "leads_to"
+    },
+    {
+      "from": "thread",
+      "to": "ctx_switch_mech",
+      "kind": "requires",
+      "label": "cheaper than process switch"
+    },
+    {
+      "from": "concurrency",
+      "to": "race_cs",
+      "kind": "causes",
+      "label": "even on 1 core"
+    },
+    {
+      "from": "scheduler",
+      "to": "criteria",
+      "kind": "leads_to"
+    },
+    {
+      "from": "criteria",
+      "to": "fcfs_sjf",
+      "kind": "leads_to"
+    },
+    {
+      "from": "fcfs_sjf",
+      "to": "priority_rr",
+      "kind": "leads_to"
+    },
+    {
+      "from": "priority_rr",
+      "to": "smp",
+      "kind": "leads_to"
+    },
+    {
+      "from": "race_cs",
+      "to": "peterson_hw",
+      "kind": "leads_to"
+    },
+    {
+      "from": "peterson_hw",
+      "to": "semaphore",
+      "kind": "leads_to"
+    },
+    {
+      "from": "semaphore",
+      "to": "bounded_buf",
+      "kind": "specializes"
+    },
+    {
+      "from": "semaphore",
+      "to": "rw_dining",
+      "kind": "specializes"
+    },
+    {
+      "from": "semaphore",
+      "to": "deadlock",
+      "kind": "causes",
+      "label": "bad wait order"
+    },
+    {
+      "from": "bounded_buf",
+      "to": "deadlock",
+      "kind": "causes",
+      "label": "mutex before full/empty"
+    },
+    {
+      "from": "race_cs",
+      "to": "monitor",
+      "kind": "alternative_to",
+      "label": "higher-level ME"
+    },
+    {
+      "from": "semaphore",
+      "to": "monitor",
+      "kind": "alternative_to"
+    },
+    {
+      "from": "mode_vs_ctx",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "fcfs_sjf",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "priority_rr",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "bounded_buf",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "race_cs",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "fork_ipc",
+      "to": "midterm_quiz",
+      "kind": "assessed_by"
+    }
+  ]
+}

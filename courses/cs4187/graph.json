@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "course": "CS4187 Computer Vision for Interactivity",
+    "institution": "City University of Hong Kong",
+    "title": "Course Knowledge Graph",
+    "description": "Concept map for CS4187 Quiz (10%) prep \u2014 Ch.2 Basic Image: formation, histograms, point ops, neighborhood filters. Not a lecture folder tree.",
+    "updated": "2026-10-12",
+    "status": "ready",
+    "owning_bot": "CS4187 Computer Vision for Interactivity",
+    "api": {
+      "local_base": "http://127.0.0.1:8765",
+      "graph_json": "http://127.0.0.1:8765/courses/cs4187/graph.json",
+      "ui": "http://127.0.0.1:8765/courses/cs4187/",
+      "hub": "http://127.0.0.1:8765/",
+      "catalog": "http://127.0.0.1:8765/courses.json",
+      "pages_base": "https://6309-lcy.github.io/cityu-course-graph",
+      "pages_graph_json": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4187/graph.json",
+      "pages_ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4187/",
+      "pages_hub": "https://6309-lcy.github.io/cityu-course-graph/",
+      "pages_catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json"
+    },
+    "box_paths": {
+      "dir": "/workspace/cityu-course-graph/courses/cs4187/",
+      "graph": "/workspace/cityu-course-graph/courses/cs4187/graph.json",
+      "ui": "/workspace/cityu-course-graph/courses/cs4187/index.html"
+    },
+    "asciiColumns": [
+      {
+        "title": "FORMATION",
+        "groups": [
+          "formation"
+        ]
+      },
+      {
+        "title": "INTENSITY",
+        "groups": [
+          "intensity"
+        ]
+      },
+      {
+        "title": "FILTERING",
+        "groups": [
+          "filtering"
+        ]
+      },
+      {
+        "title": "PRACTICE",
+        "groups": [
+          "practice"
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "formation": {
+      "label": "Image formation & model",
+      "color": "#7D4BC6"
+    },
+    "intensity": {
+      "label": "Histograms & point ops",
+      "color": "#0EA5E9"
+    },
+    "filtering": {
+      "label": "Neighborhood filters",
+      "color": "#F59E0B"
+    },
+    "practice": {
+      "label": "Practice / Assessment",
+      "color": "#9CA3AF"
+    }
+  },
+  "edgeKinds": {
+    "leads_to": "Leads to / builds toward",
+    "requires": "Requires / depends on",
+    "specializes": "Specializes / instance of",
+    "alternative_to": "Alternative approach to",
+    "contrasts": "Contrasts with",
+    "assessed_by": "Assessed by"
+  },
+  "nodes": [
+    {
+      "id": "image_fn",
+      "label": "Image as f(x,y)",
+      "group": "formation",
+      "lecture": "2",
+      "detail": "Discrete 2D intensity (or vector) function sampled on a grid; foundation for all later ops."
+    },
+    {
+      "id": "pixel_matrix",
+      "label": "Matrix / pixels / channels",
+      "group": "formation",
+      "lecture": "2",
+      "detail": "Rows\u00d7cols array; gray = 1 channel; RGB = 3. Pixel = sample at (i,j); dtype & range matter (0\u2013255 vs float)."
+    },
+    {
+      "id": "display_coords",
+      "label": "Display coordinates",
+      "group": "formation",
+      "lecture": "2",
+      "detail": "Often origin top-left, +x right, +y down \u2014 not math-plane. Match OF/OpenCV conventions when coding."
+    },
+    {
+      "id": "image_types",
+      "label": "Binary / gray / color",
+      "group": "formation",
+      "lecture": "2",
+      "detail": "Binary {0,1}; gray scalar; color multi-channel. Thresholding maps gray\u2192binary."
+    },
+    {
+      "id": "noise",
+      "label": "Additive noise",
+      "group": "formation",
+      "lecture": "2",
+      "detail": "Observed = signal + noise (e.g. Gaussian). Motivates smoothing; salt-pepper \u2192 prefer median."
+    },
+    {
+      "id": "histogram",
+      "label": "Histogram",
+      "group": "intensity",
+      "lecture": "2",
+      "detail": "Count of pixels per intensity bin. Shape shows contrast, exposure, multimodal scenes."
+    },
+    {
+      "id": "hist_eq",
+      "label": "Stretch / equalization",
+      "group": "intensity",
+      "lecture": "2",
+      "detail": "Stretch remaps [min,max]\u2192full range; EQ flattens CDF for more uniform histogram / contrast."
+    },
+    {
+      "id": "filt_vs_warp",
+      "label": "Filtering vs warping",
+      "group": "intensity",
+      "lecture": "2",
+      "detail": "Filtering changes intensities (same grid); warping moves pixels (geometry). Keep these separate."
+    },
+    {
+      "id": "point_ops",
+      "label": "Homogeneous point ops",
+      "group": "intensity",
+      "lecture": "2",
+      "detail": "Output pixel depends only on same-location input (and global params): brightness, contrast, gamma, threshold."
+    },
+    {
+      "id": "convolution",
+      "label": "Convolution",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Neighborhood weighted sum with flipped kernel. Linear + shift-invariant filters = convolution."
+    },
+    {
+      "id": "correlation",
+      "label": "Correlation",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Same as convolution without kernel flip. Template matching often uses correlation."
+    },
+    {
+      "id": "mean_box",
+      "label": "Mean / box blur",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Uniform kernel; fast low-pass; boxes can ring. Separable \u2192 O(n) per axis."
+    },
+    {
+      "id": "gaussian",
+      "label": "Gaussian blur",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Isotropic low-pass; \u03c3 controls scale. Separable; preferred pre-blur before edges."
+    },
+    {
+      "id": "median",
+      "label": "Median filter",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Nonlinear; kills salt-pepper while preserving edges better than mean. Not a convolution."
+    },
+    {
+      "id": "sharpen",
+      "label": "Sharpen / unsharp",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Boost high frequencies: original + amount\u00d7(original \u2212 blur), or Laplacian-style kernels."
+    },
+    {
+      "id": "edge_kernels",
+      "label": "Edge kernels (Sobel\u2026)",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "Derivative approximations (Sobel, Prewitt, Laplacian). Gradient magnitude \u2248 edge strength."
+    },
+    {
+      "id": "boundary",
+      "label": "Padding / borders",
+      "group": "filtering",
+      "lecture": "2",
+      "detail": "How kernels treat edges: zero, replicate, reflect, wrap. Affects border artifacts."
+    },
+    {
+      "id": "of_pipeline",
+      "label": "OF / ofxCv load\u2013draw",
+      "group": "practice",
+      "lecture": "Tut 03",
+      "detail": "Load ofImage, gray convert, draw; Mat ops via ofxCv \u2014 practice layer for Ch.2 ideas."
+    },
+    {
+      "id": "quiz",
+      "label": "Quiz (10%)",
+      "group": "practice",
+      "lecture": "Assess",
+      "detail": "Catalogue continuous: Quiz 10% + assignments/project 50%; final exam 40% (\u226530% exam to pass). Exact date on Canvas."
+    }
+  ],
+  "edges": [
+    {
+      "from": "image_fn",
+      "to": "pixel_matrix",
+      "kind": "leads_to"
+    },
+    {
+      "from": "pixel_matrix",
+      "to": "display_coords",
+      "kind": "requires"
+    },
+    {
+      "from": "pixel_matrix",
+      "to": "image_types",
+      "kind": "specializes"
+    },
+    {
+      "from": "image_types",
+      "to": "noise",
+      "kind": "leads_to"
+    },
+    {
+      "from": "pixel_matrix",
+      "to": "histogram",
+      "kind": "leads_to"
+    },
+    {
+      "from": "histogram",
+      "to": "hist_eq",
+      "kind": "leads_to"
+    },
+    {
+      "from": "image_fn",
+      "to": "filt_vs_warp",
+      "kind": "leads_to"
+    },
+    {
+      "from": "filt_vs_warp",
+      "to": "point_ops",
+      "kind": "specializes"
+    },
+    {
+      "from": "histogram",
+      "to": "point_ops",
+      "kind": "requires"
+    },
+    {
+      "from": "filt_vs_warp",
+      "to": "convolution",
+      "kind": "leads_to"
+    },
+    {
+      "from": "convolution",
+      "to": "correlation",
+      "kind": "contrasts"
+    },
+    {
+      "from": "noise",
+      "to": "mean_box",
+      "kind": "leads_to"
+    },
+    {
+      "from": "noise",
+      "to": "median",
+      "kind": "leads_to"
+    },
+    {
+      "from": "convolution",
+      "to": "mean_box",
+      "kind": "specializes"
+    },
+    {
+      "from": "convolution",
+      "to": "gaussian",
+      "kind": "specializes"
+    },
+    {
+      "from": "mean_box",
+      "to": "gaussian",
+      "kind": "alternative_to"
+    },
+    {
+      "from": "median",
+      "to": "mean_box",
+      "kind": "alternative_to"
+    },
+    {
+      "from": "gaussian",
+      "to": "sharpen",
+      "kind": "leads_to"
+    },
+    {
+      "from": "convolution",
+      "to": "edge_kernels",
+      "kind": "specializes"
+    },
+    {
+      "from": "gaussian",
+      "to": "edge_kernels",
+      "kind": "requires"
+    },
+    {
+      "from": "convolution",
+      "to": "boundary",
+      "kind": "requires"
+    },
+    {
+      "from": "point_ops",
+      "to": "of_pipeline",
+      "kind": "leads_to"
+    },
+    {
+      "from": "gaussian",
+      "to": "of_pipeline",
+      "kind": "leads_to"
+    },
+    {
+      "from": "image_fn",
+      "to": "quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "hist_eq",
+      "to": "quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "convolution",
+      "to": "quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "median",
+      "to": "quiz",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "edge_kernels",
+      "to": "quiz",
+      "kind": "assessed_by"
+    }
+  ]
+}

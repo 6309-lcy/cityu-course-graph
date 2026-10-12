@@ -1,0 +1,721 @@
+{
+  "meta": {
+    "course": "CS4487/CS5489 Machine Learning",
+    "institution": "City University of Hong Kong",
+    "title": "Course Knowledge Graph",
+    "description": "ASCII conceptual map of lectures, math foundations, and assessments. Layered left-to-right topic graph (not a folder tree; not a force-directed canvas).",
+    "updated": "2026-10-12",
+    "api": {
+      "local_base": "http://127.0.0.1:8765",
+      "graph_json": "http://127.0.0.1:8765/courses/cs4487/graph.json",
+      "ui": "http://127.0.0.1:8765/courses/cs4487/",
+      "compat_graph_json": "http://127.0.0.1:8765/graph.json",
+      "hub": "http://127.0.0.1:8765/",
+      "catalog": "http://127.0.0.1:8765/courses.json",
+      "pages_base": "https://6309-lcy.github.io/cityu-course-graph",
+      "pages_graph_json": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4487/graph.json",
+      "pages_ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs4487/",
+      "pages_hub": "https://6309-lcy.github.io/cityu-course-graph/",
+      "pages_catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json",
+      "pages_compat_graph_json": "https://6309-lcy.github.io/cityu-course-graph/graph.json"
+    },
+    "box_paths": {
+      "dir": "/workspace/cityu-course-graph/courses/cs4487/",
+      "graph": "/workspace/cityu-course-graph/courses/cs4487/graph.json",
+      "ui": "/workspace/cityu-course-graph/courses/cs4487/index.html",
+      "ascii_snapshot": "/workspace/cityu-course-graph/courses/cs4487/ascii-snapshot.txt"
+    },
+    "status": "ready",
+    "asciiColumns": [
+      {
+        "title": "MATH",
+        "groups": [
+          "math"
+        ]
+      },
+      {
+        "title": "GEN / DISC / MARGIN",
+        "groups": [
+          "classify_gen",
+          "classify_disc",
+          "margin"
+        ]
+      },
+      {
+        "title": "REG / UNSUP",
+        "groups": [
+          "regression",
+          "unsup"
+        ]
+      },
+      {
+        "title": "PRACTICE",
+        "groups": [
+          "practice"
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "math": {
+      "label": "Math",
+      "color": "#4C8BF5"
+    },
+    "classify_gen": {
+      "label": "Classification (generative)",
+      "color": "#34A853"
+    },
+    "classify_disc": {
+      "label": "Classification (discriminative)",
+      "color": "#0D9488"
+    },
+    "margin": {
+      "label": "Margin methods",
+      "color": "#F59E0B"
+    },
+    "regression": {
+      "label": "Regression",
+      "color": "#A855F7"
+    },
+    "unsup": {
+      "label": "Unsupervised",
+      "color": "#EC4899"
+    },
+    "practice": {
+      "label": "Practice / Assessment",
+      "color": "#9CA3AF"
+    }
+  },
+  "edgeKinds": {
+    "uses_math": "Uses math foundation",
+    "specializes": "Specializes / instance of",
+    "alternative_to": "Alternative approach to",
+    "leads_to": "Leads to / builds toward",
+    "assessed_by": "Assessed by",
+    "shares_geometry": "Shares geometry / decision view",
+    "map_view": "Same idea, different view (e.g. map/feature)"
+  },
+  "nodes": [
+    {
+      "id": "prob_bayes",
+      "label": "Prob / Bayes",
+      "group": "math",
+      "lecture": "1.1\u20131.2",
+      "detail": "Probability, Bayes theorem, prior/likelihood/posterior. Foundation for generative classifiers and MLE."
+    },
+    {
+      "id": "entropy_mi",
+      "label": "Entropy / MI",
+      "group": "math",
+      "lecture": "1.x",
+      "detail": "Shannon entropy, cross-entropy, mutual information. Links to decision trees, information gain, and probabilistic modeling."
+    },
+    {
+      "id": "linalg_psd",
+      "label": "LinAlg / PSD",
+      "group": "math",
+      "lecture": "2\u20135",
+      "detail": "Vectors, matrices, eigenvalues, positive-semidefinite matrices. Normal equations, covariance, and kernel PSD conditions."
+    },
+    {
+      "id": "convex_gd",
+      "label": "Convex / GD / SGD",
+      "group": "math",
+      "lecture": "2\u20135",
+      "detail": "Convexity, gradients, gradient descent and SGD. Training workhorse for logistic regression, ridge/lasso, and neural nets."
+    },
+    {
+      "id": "duality_kkt",
+      "label": "Duality / KKT",
+      "group": "math",
+      "lecture": "3\u20134",
+      "detail": "Lagrangian dual, KKT conditions, complementary slackness. Core theory for hard/soft-margin SVM and kernel SVM."
+    },
+    {
+      "id": "mle",
+      "label": "MLE",
+      "group": "math",
+      "lecture": "1.2",
+      "detail": "Maximum likelihood estimation: choose parameters that maximize data likelihood. Unifies NB, LDA, LogReg, OLS, and GMM fitting."
+    },
+    {
+      "id": "bayes_knn",
+      "label": "Bayes / KNN",
+      "group": "classify_gen",
+      "lecture": "1.2",
+      "detail": "Bayes decision rule and k-nearest neighbors. Optimal Bayes classifier vs nonparametric local majority vote."
+    },
+    {
+      "id": "nb",
+      "label": "Naive Bayes",
+      "group": "classify_gen",
+      "lecture": "2.1",
+      "detail": "Generative classifier with conditional independence of features given class. Fast, strong baseline; MLE for class-conditionals."
+    },
+    {
+      "id": "lda",
+      "label": "LDA",
+      "group": "classify_gen",
+      "lecture": "2.1",
+      "detail": "Linear discriminant analysis: shared covariance Gaussian class-conditionals. Posterior odds yield a linear decision boundary."
+    },
+    {
+      "id": "logreg",
+      "label": "Logistic Regression",
+      "group": "classify_disc",
+      "lecture": "2.2",
+      "detail": "Discriminative linear classifier; models P(y|x) with sigmoid. Trained by maximizing likelihood via GD/SGD (convex)."
+    },
+    {
+      "id": "svm_linear",
+      "label": "Linear SVM",
+      "group": "margin",
+      "lecture": "3.2",
+      "detail": "Hard/soft-margin support vector machine. Maximizes geometric margin; dual with KKT; hinge loss vs logistic loss."
+    },
+    {
+      "id": "kernel_svm",
+      "label": "Kernel SVM",
+      "group": "margin",
+      "lecture": "4.2",
+      "detail": "Kernel trick: implicit feature map via PSD kernel. Same dual as linear SVM in feature space (RBF, poly, etc.)."
+    },
+    {
+      "id": "feature_map",
+      "label": "Feature maps / kernels",
+      "group": "margin",
+      "lecture": "4.1\u20134.2",
+      "detail": "\u03c6(x) and k(x,x')=\u27e8\u03c6(x),\u03c6(x')\u27e9. Mercer's theorem / PSD kernels enable nonlinear separators without explicit \u03c6."
+    },
+    {
+      "id": "hinge_vs_logistic",
+      "label": "Hinge vs logistic loss",
+      "group": "margin",
+      "lecture": "3.2 / 2.2",
+      "detail": "Hinge (SVM) focuses on margin violations; logistic (LogReg) is smooth probabilistic. Same linear separator geometry, different objectives."
+    },
+    {
+      "id": "ols",
+      "label": "OLS",
+      "group": "regression",
+      "lecture": "5.1",
+      "detail": "Ordinary least squares: minimize squared residual. Closed form via normal equations; under Gaussian noise equals MLE."
+    },
+    {
+      "id": "ridge_lasso",
+      "label": "Ridge / Lasso",
+      "group": "regression",
+      "lecture": "5.2",
+      "detail": "L2 (ridge) and L1 (lasso) regularized linear regression. Bias\u2013variance tradeoff; lasso induces sparsity; convex optimization."
+    },
+    {
+      "id": "ransac",
+      "label": "RANSAC",
+      "group": "regression",
+      "lecture": "6.1",
+      "detail": "Robust fitting by random sampling of inliers. Handles outliers that break OLS; used for nonlinear / geometric models too."
+    },
+    {
+      "id": "nonlinear_reg",
+      "label": "Nonlinear regression",
+      "group": "regression",
+      "lecture": "6.1",
+      "detail": "Polynomial/basis expansions and nonlinear models. Connects to feature maps and kernel methods for flexible curves."
+    },
+    {
+      "id": "clustering",
+      "label": "Clustering / k-means",
+      "group": "unsup",
+      "lecture": "6.2",
+      "detail": "Unsupervised grouping; k-means minimizes within-cluster SSE via alternating assignment and centroid updates."
+    },
+    {
+      "id": "gmm",
+      "label": "GMM / EM",
+      "group": "unsup",
+      "lecture": "6.2",
+      "detail": "Gaussian mixture models fit via EM. Soft clusters; class-conditionals of LDA/QDA are a supervised cousin."
+    },
+    {
+      "id": "ari",
+      "label": "Adjusted Rand Index",
+      "group": "unsup",
+      "lecture": "6.2",
+      "detail": "Cluster validity vs a ground-truth partition, chance-corrected. Used to score clustering quality when labels exist for eval."
+    },
+    {
+      "id": "ha1",
+      "label": "HA1",
+      "group": "practice",
+      "lecture": "HA1",
+      "detail": "Homework 1: early classifiers and math\u2014Bayes/KNN, NB/LDA, LogReg basics, probability and MLE practice."
+    },
+    {
+      "id": "ha2",
+      "label": "HA2 (due Oct 20)",
+      "group": "practice",
+      "lecture": "HA2",
+      "detail": "Homework 2 due Oct 20: convex/GD practice (Ex2), SVM dual and KKT (Ex3\u2013Ex5), margin/kernel ideas."
+    },
+    {
+      "id": "tutorials",
+      "label": "Tutorials",
+      "group": "practice",
+      "lecture": "TUT",
+      "detail": "Tutorial sessions reinforcing lecture math and coding demos across classification, regression, and unsupervised topics."
+    },
+    {
+      "id": "final_exam",
+      "label": "Final exam",
+      "group": "practice",
+      "lecture": "Exam",
+      "detail": "Cumulative assessment covering math foundations, generative/discriminative classifiers, SVM/kernels, regression, clustering."
+    },
+    {
+      "id": "gaussian_class",
+      "label": "Gaussian class-conditionals",
+      "group": "classify_gen",
+      "lecture": "2.1",
+      "detail": "p(x|y) as multivariate Gaussians. Shared \u03a3 \u2192 LDA (linear); class-wise \u03a3 \u2192 QDA (quadratic). Shared with GMM components."
+    },
+    {
+      "id": "linear_separator",
+      "label": "Linear separators",
+      "group": "classify_disc",
+      "lecture": "2\u20133",
+      "detail": "Hyperplane decision boundaries shared by LDA (posterior), LogReg, and linear SVM\u2014different estimation criteria."
+    },
+    {
+      "id": "normal_eq",
+      "label": "Normal equations",
+      "group": "regression",
+      "lecture": "5.1",
+      "detail": "X\u1d40X \u03b2 = X\u1d40y closed form for OLS. Requires LinAlg (invertibility / PSD of Gram matrix); ridge adds \u03bbI."
+    },
+    {
+      "id": "drop_labels",
+      "label": "Supervised \u2192 unsupervised",
+      "group": "unsup",
+      "lecture": "6.2",
+      "detail": "Drop class labels and the same feature space becomes a clustering problem; GMM softens hard k-means partitions."
+    },
+    {
+      "id": "ha2_ex2",
+      "label": "HA2 Ex2 (GD)",
+      "group": "practice",
+      "lecture": "HA2 Ex2",
+      "detail": "Homework exercise on convexity and gradient/SGD steps\u2014applies Convex/GD ideas to concrete training problems."
+    },
+    {
+      "id": "ha2_ex345",
+      "label": "HA2 Ex3\u20135 (SVM dual)",
+      "group": "practice",
+      "lecture": "HA2 Ex3\u20135",
+      "detail": "Dual formulation, KKT, and support vectors\u2014tight link from Duality/KKT math to linear/kernel SVM."
+    }
+  ],
+  "edges": [
+    {
+      "from": "prob_bayes",
+      "to": "bayes_knn",
+      "kind": "leads_to",
+      "label": "Bayes rule \u2192 decision"
+    },
+    {
+      "from": "prob_bayes",
+      "to": "mle",
+      "kind": "leads_to",
+      "label": "likelihood view"
+    },
+    {
+      "from": "mle",
+      "to": "nb",
+      "kind": "uses_math",
+      "label": "MLE for NB params"
+    },
+    {
+      "from": "mle",
+      "to": "lda",
+      "kind": "uses_math",
+      "label": "MLE for Gaussians"
+    },
+    {
+      "from": "mle",
+      "to": "logreg",
+      "kind": "uses_math",
+      "label": "Bernoulli likelihood"
+    },
+    {
+      "from": "mle",
+      "to": "ols",
+      "kind": "map_view",
+      "label": "OLS \u2194 Gaussian MLE"
+    },
+    {
+      "from": "mle",
+      "to": "gmm",
+      "kind": "uses_math",
+      "label": "incomplete-data MLE / EM"
+    },
+    {
+      "from": "prob_bayes",
+      "to": "nb",
+      "kind": "uses_math",
+      "label": "generative Bayes"
+    },
+    {
+      "from": "prob_bayes",
+      "to": "lda",
+      "kind": "uses_math",
+      "label": "generative Bayes"
+    },
+    {
+      "from": "entropy_mi",
+      "to": "nb",
+      "kind": "leads_to",
+      "label": "info view of independence"
+    },
+    {
+      "from": "linalg_psd",
+      "to": "lda",
+      "kind": "uses_math",
+      "label": "covariance / \u03a3\u207b\u00b9"
+    },
+    {
+      "from": "linalg_psd",
+      "to": "normal_eq",
+      "kind": "uses_math",
+      "label": "X\u1d40X invertibility"
+    },
+    {
+      "from": "linalg_psd",
+      "to": "ols",
+      "kind": "uses_math",
+      "label": "least-squares geometry"
+    },
+    {
+      "from": "linalg_psd",
+      "to": "feature_map",
+      "kind": "uses_math",
+      "label": "kernel PSD / Mercer"
+    },
+    {
+      "from": "linalg_psd",
+      "to": "ridge_lasso",
+      "kind": "uses_math",
+      "label": "Gram + \u03bbI"
+    },
+    {
+      "from": "convex_gd",
+      "to": "logreg",
+      "kind": "uses_math",
+      "label": "convex NLL train"
+    },
+    {
+      "from": "convex_gd",
+      "to": "ridge_lasso",
+      "kind": "uses_math",
+      "label": "convex regularized obj"
+    },
+    {
+      "from": "convex_gd",
+      "to": "ha2_ex2",
+      "kind": "assessed_by",
+      "label": "HA2 Ex2"
+    },
+    {
+      "from": "duality_kkt",
+      "to": "svm_linear",
+      "kind": "uses_math",
+      "label": "primal\u2013dual / KKT"
+    },
+    {
+      "from": "duality_kkt",
+      "to": "kernel_svm",
+      "kind": "uses_math",
+      "label": "dual in feature space"
+    },
+    {
+      "from": "duality_kkt",
+      "to": "ha2_ex345",
+      "kind": "assessed_by",
+      "label": "HA2 Ex3\u20135"
+    },
+    {
+      "from": "bayes_knn",
+      "to": "nb",
+      "kind": "leads_to",
+      "label": "from Bayes to parametric"
+    },
+    {
+      "from": "nb",
+      "to": "lda",
+      "kind": "specializes",
+      "label": "richer class-conditionals"
+    },
+    {
+      "from": "gaussian_class",
+      "to": "lda",
+      "kind": "specializes",
+      "label": "shared-\u03a3 case"
+    },
+    {
+      "from": "lda",
+      "to": "logreg",
+      "kind": "map_view",
+      "label": "LDA posterior \u2248 sigmoid"
+    },
+    {
+      "from": "lda",
+      "to": "linear_separator",
+      "kind": "shares_geometry",
+      "label": "linear boundary"
+    },
+    {
+      "from": "logreg",
+      "to": "linear_separator",
+      "kind": "shares_geometry",
+      "label": "linear boundary"
+    },
+    {
+      "from": "svm_linear",
+      "to": "linear_separator",
+      "kind": "shares_geometry",
+      "label": "max-margin hyperplane"
+    },
+    {
+      "from": "logreg",
+      "to": "svm_linear",
+      "kind": "alternative_to",
+      "label": "disc. linear classifiers"
+    },
+    {
+      "from": "logreg",
+      "to": "hinge_vs_logistic",
+      "kind": "shares_geometry",
+      "label": "logistic loss"
+    },
+    {
+      "from": "svm_linear",
+      "to": "hinge_vs_logistic",
+      "kind": "shares_geometry",
+      "label": "hinge loss"
+    },
+    {
+      "from": "svm_linear",
+      "to": "kernel_svm",
+      "kind": "leads_to",
+      "label": "nonlinear via kernel"
+    },
+    {
+      "from": "feature_map",
+      "to": "kernel_svm",
+      "kind": "map_view",
+      "label": "\u03c6 then same dual"
+    },
+    {
+      "from": "feature_map",
+      "to": "nonlinear_reg",
+      "kind": "map_view",
+      "label": "basis / kernel regression"
+    },
+    {
+      "from": "ols",
+      "to": "ridge_lasso",
+      "kind": "leads_to",
+      "label": "add regularization"
+    },
+    {
+      "from": "ols",
+      "to": "normal_eq",
+      "kind": "specializes",
+      "label": "closed form"
+    },
+    {
+      "from": "ols",
+      "to": "ransac",
+      "kind": "alternative_to",
+      "label": "OLS breaks on outliers"
+    },
+    {
+      "from": "ransac",
+      "to": "nonlinear_reg",
+      "kind": "leads_to",
+      "label": "robust nonlinear fit"
+    },
+    {
+      "from": "ridge_lasso",
+      "to": "convex_gd",
+      "kind": "uses_math",
+      "label": "opt when closed form hard"
+    },
+    {
+      "from": "bayes_knn",
+      "to": "clustering",
+      "kind": "leads_to",
+      "label": "drop labels \u2192 groups"
+    },
+    {
+      "from": "lda",
+      "to": "drop_labels",
+      "kind": "leads_to",
+      "label": "supervised \u2192 unsup"
+    },
+    {
+      "from": "drop_labels",
+      "to": "clustering",
+      "kind": "map_view",
+      "label": "same X, no y"
+    },
+    {
+      "from": "clustering",
+      "to": "gmm",
+      "kind": "leads_to",
+      "label": "soft / probabilistic"
+    },
+    {
+      "from": "gaussian_class",
+      "to": "gmm",
+      "kind": "map_view",
+      "label": "Gaussians w/o labels"
+    },
+    {
+      "from": "gmm",
+      "to": "ari",
+      "kind": "leads_to",
+      "label": "evaluate clusters"
+    },
+    {
+      "from": "clustering",
+      "to": "ari",
+      "kind": "leads_to",
+      "label": "external validity"
+    },
+    {
+      "from": "ha1",
+      "to": "bayes_knn",
+      "kind": "assessed_by",
+      "label": "HA1 covers"
+    },
+    {
+      "from": "ha1",
+      "to": "nb",
+      "kind": "assessed_by",
+      "label": "HA1 covers"
+    },
+    {
+      "from": "ha1",
+      "to": "lda",
+      "kind": "assessed_by",
+      "label": "HA1 covers"
+    },
+    {
+      "from": "ha1",
+      "to": "logreg",
+      "kind": "assessed_by",
+      "label": "HA1 covers"
+    },
+    {
+      "from": "ha1",
+      "to": "prob_bayes",
+      "kind": "assessed_by",
+      "label": "HA1 math"
+    },
+    {
+      "from": "ha1",
+      "to": "mle",
+      "kind": "assessed_by",
+      "label": "HA1 math"
+    },
+    {
+      "from": "ha2",
+      "to": "ha2_ex2",
+      "kind": "specializes",
+      "label": "includes"
+    },
+    {
+      "from": "ha2",
+      "to": "ha2_ex345",
+      "kind": "specializes",
+      "label": "includes"
+    },
+    {
+      "from": "ha2",
+      "to": "svm_linear",
+      "kind": "assessed_by",
+      "label": "HA2 covers"
+    },
+    {
+      "from": "ha2",
+      "to": "kernel_svm",
+      "kind": "assessed_by",
+      "label": "HA2 covers"
+    },
+    {
+      "from": "ha2",
+      "to": "convex_gd",
+      "kind": "assessed_by",
+      "label": "HA2 covers"
+    },
+    {
+      "from": "ha2",
+      "to": "duality_kkt",
+      "kind": "assessed_by",
+      "label": "HA2 covers"
+    },
+    {
+      "from": "tutorials",
+      "to": "logreg",
+      "kind": "assessed_by",
+      "label": "tutorial practice"
+    },
+    {
+      "from": "tutorials",
+      "to": "ols",
+      "kind": "assessed_by",
+      "label": "tutorial practice"
+    },
+    {
+      "from": "tutorials",
+      "to": "clustering",
+      "kind": "assessed_by",
+      "label": "tutorial practice"
+    },
+    {
+      "from": "final_exam",
+      "to": "svm_linear",
+      "kind": "assessed_by",
+      "label": "exam topic"
+    },
+    {
+      "from": "final_exam",
+      "to": "kernel_svm",
+      "kind": "assessed_by",
+      "label": "exam topic"
+    },
+    {
+      "from": "final_exam",
+      "to": "ridge_lasso",
+      "kind": "assessed_by",
+      "label": "exam topic"
+    },
+    {
+      "from": "final_exam",
+      "to": "gmm",
+      "kind": "assessed_by",
+      "label": "exam topic"
+    },
+    {
+      "from": "final_exam",
+      "to": "duality_kkt",
+      "kind": "assessed_by",
+      "label": "exam math"
+    },
+    {
+      "from": "final_exam",
+      "to": "mle",
+      "kind": "assessed_by",
+      "label": "exam math"
+    }
+  ]
+}

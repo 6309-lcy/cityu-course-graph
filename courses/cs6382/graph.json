@@ -1,0 +1,526 @@
+{
+  "meta": {
+    "course": "CS6382 Advanced Algo Design and Game Theory",
+    "institution": "City University of Hong Kong",
+    "title": "Course Knowledge Graph",
+    "description": "CS4335 ug lectures as main spine (L1\u2013L6 midterm: greedy + divide-and-conquer), with CS6382 topics nested as complements. Concept map, not a folder tree.",
+    "updated": "2026-10-12",
+    "status": "ready",
+    "owning_bot": "CS6382",
+    "api": {
+      "local_base": "http://127.0.0.1:8765",
+      "graph_json": "http://127.0.0.1:8765/courses/cs6382/graph.json",
+      "ui": "http://127.0.0.1:8765/courses/cs6382/",
+      "hub": "http://127.0.0.1:8765/",
+      "catalog": "http://127.0.0.1:8765/courses.json",
+      "pages_base": "https://6309-lcy.github.io/cityu-course-graph",
+      "pages_graph_json": "https://6309-lcy.github.io/cityu-course-graph/courses/cs6382/graph.json",
+      "pages_ui": "https://6309-lcy.github.io/cityu-course-graph/courses/cs6382/",
+      "pages_hub": "https://6309-lcy.github.io/cityu-course-graph/",
+      "pages_catalog": "https://6309-lcy.github.io/cityu-course-graph/courses.json"
+    },
+    "box_paths": {
+      "dir": "/workspace/cityu-course-graph/courses/cs6382/",
+      "graph": "/workspace/cityu-course-graph/courses/cs6382/graph.json",
+      "ui": "/workspace/cityu-course-graph/courses/cs6382/index.html"
+    },
+    "asciiColumns": [
+      {
+        "title": "FOUNDATIONS",
+        "groups": [
+          "foundations"
+        ]
+      },
+      {
+        "title": "GREEDY",
+        "groups": [
+          "greedy"
+        ]
+      },
+      {
+        "title": "GRAPHS / PATHS",
+        "groups": [
+          "graphs_paths"
+        ]
+      },
+      {
+        "title": "D&C / PROOFS",
+        "groups": [
+          "divide_conquer",
+          "proofs"
+        ]
+      },
+      {
+        "title": "CS6382",
+        "groups": [
+          "cs6382"
+        ]
+      },
+      {
+        "title": "PRACTICE",
+        "groups": [
+          "practice"
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "foundations": {
+      "label": "Foundations / graphs",
+      "color": "#4C8BF5"
+    },
+    "greedy": {
+      "label": "Greedy algorithms",
+      "color": "#34A853"
+    },
+    "graphs_paths": {
+      "label": "MST & shortest paths",
+      "color": "#F59E0B"
+    },
+    "divide_conquer": {
+      "label": "Divide and conquer",
+      "color": "#EC4899"
+    },
+    "proofs": {
+      "label": "Proof techniques",
+      "color": "#7D4BC6"
+    },
+    "cs6382": {
+      "label": "CS6382 complements",
+      "color": "#0D9488"
+    },
+    "practice": {
+      "label": "Practice / Assessment",
+      "color": "#9CA3AF"
+    }
+  },
+  "edgeKinds": {
+    "leads_to": "Leads to / builds toward",
+    "requires": "Requires / depends on",
+    "specializes": "Specializes / instance of",
+    "alternative_to": "Alternative approach to",
+    "proved_by": "Correctness proved by",
+    "complements": "CS6382 complement of CS4335 topic",
+    "assessed_by": "Assessed by"
+  },
+  "nodes": [
+    {
+      "id": "algo_def",
+      "label": "Algorithm definition",
+      "group": "foundations",
+      "lecture": "CS4335 L1",
+      "detail": "Input, output, definiteness, finiteness. Design pipeline: define \u2192 design \u2192 prove \u2192 analyze (Big-O)."
+    },
+    {
+      "id": "graph_basics",
+      "label": "Graph terms / degree",
+      "group": "foundations",
+      "lecture": "CS4335 L1",
+      "detail": "G=(V,E); degree; path/circuit; connected; adj list O(V+E) vs matrix O(V\u00b2)."
+    },
+    {
+      "id": "euler",
+      "label": "Euler circuit theorem",
+      "group": "foundations",
+      "lecture": "CS4335 L1",
+      "detail": "Connected + all even degrees \u21d4 Euler circuit. Circuit-merge algorithm. vs Hamiltonian (NP-complete)."
+    },
+    {
+      "id": "greedy_principle",
+      "label": "Greedy principle",
+      "group": "greedy",
+      "lecture": "CS4335 L2",
+      "detail": "Locally best choice each step; hard part is proving global optimality."
+    },
+    {
+      "id": "interval_sched",
+      "label": "Interval scheduling",
+      "group": "greedy",
+      "lecture": "CS4335 L2",
+      "detail": "Earliest finish time; O(n log n). Failed rules: earliest start, shortest, fewest conflicts."
+    },
+    {
+      "id": "interval_part",
+      "label": "Interval partitioning / depth",
+      "group": "greedy",
+      "lecture": "CS4335 L2",
+      "detail": "Sort by start; open room only if needed. Depth = lower bound = greedy room count."
+    },
+    {
+      "id": "knapsack_frac",
+      "label": "Fractional knapsack",
+      "group": "greedy",
+      "lecture": "CS4335 L5",
+      "detail": "Greedy by unit price v/w; fractions OK. 0-1 knapsack: greedy fails (counterexample)."
+    },
+    {
+      "id": "min_lateness",
+      "label": "Minimize max lateness (EDF)",
+      "group": "greedy",
+      "lecture": "CS4335 L5",
+      "detail": "Earliest deadline first; no idle; adjacent inversion swap. Shortest / smallest slack fail."
+    },
+    {
+      "id": "sjf_wait",
+      "label": "Minimize waiting time (SJF)",
+      "group": "greedy",
+      "lecture": "CS4335 L5",
+      "detail": "Shortest job first; adjacent inversion exchange on waiting-time sum."
+    },
+    {
+      "id": "boat_rescue",
+      "label": "Boat rescue",
+      "group": "greedy",
+      "lecture": "CS4335 L4",
+      "detail": "Pair heaviest with lightest if \u2264W else alone; two-pointer; exchange + induction."
+    },
+    {
+      "id": "mst",
+      "label": "MST + cut property",
+      "group": "graphs_paths",
+      "lecture": "CS4335 L3",
+      "detail": "Spanning tree min weight. Lightest edge across a cut is safe (exchange \u2113 for \u2113\u2032)."
+    },
+    {
+      "id": "kruskal",
+      "label": "Kruskal",
+      "group": "graphs_paths",
+      "lecture": "CS4335 L3",
+      "detail": "Sort edges; add if joins two components (forest). O(E log E) + Union-Find."
+    },
+    {
+      "id": "prim",
+      "label": "Prim",
+      "group": "graphs_paths",
+      "lecture": "CS4335 L3",
+      "detail": "Grow one tree; add lightest leaving edge. Heap O(E log V). Like Dijkstra but keys are edge weights."
+    },
+    {
+      "id": "dijkstra",
+      "label": "Dijkstra",
+      "group": "graphs_paths",
+      "lecture": "CS4335 L4",
+      "detail": "Nonneg weights; EXTRACT-MIN + relax. Array O(V\u00b2) / heap O(E log V). Neg edges break it."
+    },
+    {
+      "id": "relax",
+      "label": "Relaxation",
+      "group": "graphs_paths",
+      "lecture": "CS4335 L4",
+      "detail": "if d[v] > d[u]+w(u,v): update d and \u03c0. Optimal substructure of shortest paths."
+    },
+    {
+      "id": "dc_principle",
+      "label": "Divide\u2013conquer principle",
+      "group": "divide_conquer",
+      "lecture": "CS4335 L6",
+      "detail": "Divide \u2192 recur \u2192 combine. Exam framework for designing D&C (e.g. midterm Q5)."
+    },
+    {
+      "id": "mergesort",
+      "label": "Merge sort",
+      "group": "divide_conquer",
+      "lecture": "CS4335 L6",
+      "detail": "T(n)=2T(n/2)+n = O(n log n). Merge two sorted halves with two pointers."
+    },
+    {
+      "id": "inversions",
+      "label": "Counting inversions",
+      "group": "divide_conquer",
+      "lecture": "CS4335 L6",
+      "detail": "Sort-and-Count; cross inversions when taking from B: count += |A|\u2212i. O(n log n)."
+    },
+    {
+      "id": "iteration",
+      "label": "Iteration method",
+      "group": "divide_conquer",
+      "lecture": "CS4335 L6",
+      "detail": "Substitute \u2192 pattern after k steps \u2192 set n/2^k=1 \u2192 asymptotics. Midterm Q4(b\u2013d)."
+    },
+    {
+      "id": "karatsuba",
+      "label": "Karatsuba (fun / not tested)",
+      "group": "divide_conquer",
+      "lecture": "CS4335 L6",
+      "detail": "3 multiplies of N/2 digits \u2192 O(N^log\u20823). Lecture marks not tested."
+    },
+    {
+      "id": "exchange",
+      "label": "Exchange argument",
+      "group": "proofs",
+      "lecture": "L2/L5",
+      "detail": "Transform Opt into greedy without worsening cost (interval scheduling, EDF, SJF, knapsack, boat)."
+    },
+    {
+      "id": "structural",
+      "label": "Structural lower bound",
+      "group": "proofs",
+      "lecture": "L2",
+      "detail": "All solutions \u2265 D (e.g. depth); greedy = D \u2192 optimal (interval partitioning)."
+    },
+    {
+      "id": "induction_dijk",
+      "label": "Induction on S (Dijkstra)",
+      "group": "proofs",
+      "lecture": "L4",
+      "detail": "When v enters S, any path P \u2265 d[v] via first edge leaving S (needs w\u22650)."
+    },
+    {
+      "id": "maxflow",
+      "label": "Max-flow / cuts (CS6382)",
+      "group": "cs6382",
+      "lecture": "CS6382 Ch.4",
+      "detail": "Complement to CS4335 graph paths; flow\u2013cut duality, randomized algorithms chapter."
+    },
+    {
+      "id": "game_theory",
+      "label": "Game theory basics (CS6382)",
+      "group": "cs6382",
+      "lecture": "CS6382 Ch.5",
+      "detail": "Nash / defending games; nest under strategic/optimization complements after midterm spine."
+    },
+    {
+      "id": "network_defend",
+      "label": "Network defending games",
+      "group": "cs6382",
+      "lecture": "CS6382 5.3",
+      "detail": "Attacker\u2013defender on networks; builds on Ch.5 basics."
+    },
+    {
+      "id": "midterm_cs4335",
+      "label": "CS4335 midterm (Week 8 Fri 3\u20135)",
+      "group": "practice",
+      "lecture": "assess",
+      "detail": "Greedy + divide-and-conquer only; DP not tested. 2025 paper: interval, MST, Dijkstra, inversions/recurrences, D&C design, exchange greedy."
+    }
+  ],
+  "edges": [
+    {
+      "from": "algo_def",
+      "to": "graph_basics",
+      "kind": "leads_to"
+    },
+    {
+      "from": "graph_basics",
+      "to": "euler",
+      "kind": "leads_to"
+    },
+    {
+      "from": "algo_def",
+      "to": "greedy_principle",
+      "kind": "leads_to"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "interval_sched",
+      "kind": "specializes"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "interval_part",
+      "kind": "specializes"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "knapsack_frac",
+      "kind": "specializes"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "min_lateness",
+      "kind": "specializes"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "sjf_wait",
+      "kind": "specializes"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "boat_rescue",
+      "kind": "specializes"
+    },
+    {
+      "from": "interval_sched",
+      "to": "exchange",
+      "kind": "proved_by"
+    },
+    {
+      "from": "interval_part",
+      "to": "structural",
+      "kind": "proved_by"
+    },
+    {
+      "from": "knapsack_frac",
+      "to": "exchange",
+      "kind": "proved_by"
+    },
+    {
+      "from": "min_lateness",
+      "to": "exchange",
+      "kind": "proved_by",
+      "label": "adjacent inversion"
+    },
+    {
+      "from": "sjf_wait",
+      "to": "exchange",
+      "kind": "proved_by",
+      "label": "adjacent inversion"
+    },
+    {
+      "from": "boat_rescue",
+      "to": "exchange",
+      "kind": "proved_by"
+    },
+    {
+      "from": "graph_basics",
+      "to": "mst",
+      "kind": "requires"
+    },
+    {
+      "from": "mst",
+      "to": "kruskal",
+      "kind": "specializes"
+    },
+    {
+      "from": "mst",
+      "to": "prim",
+      "kind": "specializes"
+    },
+    {
+      "from": "kruskal",
+      "to": "prim",
+      "kind": "alternative_to"
+    },
+    {
+      "from": "mst",
+      "to": "exchange",
+      "kind": "proved_by",
+      "label": "cut property"
+    },
+    {
+      "from": "relax",
+      "to": "dijkstra",
+      "kind": "requires"
+    },
+    {
+      "from": "dijkstra",
+      "to": "induction_dijk",
+      "kind": "proved_by"
+    },
+    {
+      "from": "prim",
+      "to": "dijkstra",
+      "kind": "leads_to",
+      "label": "same skeleton, different key"
+    },
+    {
+      "from": "dc_principle",
+      "to": "mergesort",
+      "kind": "specializes"
+    },
+    {
+      "from": "mergesort",
+      "to": "inversions",
+      "kind": "leads_to",
+      "label": "merge + count"
+    },
+    {
+      "from": "mergesort",
+      "to": "iteration",
+      "kind": "requires",
+      "label": "solve T(n)"
+    },
+    {
+      "from": "dc_principle",
+      "to": "karatsuba",
+      "kind": "specializes"
+    },
+    {
+      "from": "inversions",
+      "to": "iteration",
+      "kind": "requires"
+    },
+    {
+      "from": "dijkstra",
+      "to": "maxflow",
+      "kind": "complements"
+    },
+    {
+      "from": "mst",
+      "to": "maxflow",
+      "kind": "complements"
+    },
+    {
+      "from": "game_theory",
+      "to": "network_defend",
+      "kind": "leads_to"
+    },
+    {
+      "from": "greedy_principle",
+      "to": "game_theory",
+      "kind": "complements",
+      "label": "post-midterm"
+    },
+    {
+      "from": "interval_sched",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "interval_part",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "mst",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "kruskal",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "prim",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "dijkstra",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "inversions",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "iteration",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "dc_principle",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "exchange",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "min_lateness",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    },
+    {
+      "from": "knapsack_frac",
+      "to": "midterm_cs4335",
+      "kind": "assessed_by"
+    }
+  ]
+}
